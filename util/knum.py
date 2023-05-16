@@ -1,5 +1,7 @@
 import requests
 import re
+from util.settings import Settings
+from time import sleep
 
 class Knum:
     def __init__(self):
@@ -14,6 +16,7 @@ class Knum:
             , type_town
             , apartment
             , fiasid
+            , settings
             ) -> object:
 
         if len(house) == 0: house = 'null'
@@ -55,13 +58,21 @@ class Knum:
         x = requests.get(url, headers=headers)
         # print(url)
         # print(x.json())
-        if (x.status_code == 200) and (x.json().get('error') == 0):
-            data = x.json().get('data')
-            if data.find('egrp=') > 0:
-                data = data[data.find('egrp=') + 5:]
-                data = data[:data.find('\'')]
-                return ['0','', data]
+        err = settings.error_try
+        while err > 0:
+            if (x.status_code == 200) and (x.json().get('error') == 0):
+                data = x.json().get('data')
+                if data.find('egrp=') > 0:
+                    data = data[data.find('egrp=') + 5:]
+                    data = data[:data.find('\'')]
+                    return ['0','', data]
+                else:
+                    return ['1', 'Не могу распарсить', '']
             else:
-                return ['1', 'Не могу распарсить', '']
-        else:
+                err -= 1
+                settings.reset_delay()
+                sleep(settings.get_delay())
+        try:
             return ['1',re.sub(r'\<[^>]*\>', '', x.json().get('data')),'']
+        except:
+            return ['1', 'Parse error', '']
