@@ -22,7 +22,7 @@ class Knum:
         if len(apartment) == 0: apartment = 'null'
         if len(fiasid) == 0: fiasid = 'null'
 
-        if type_town == 'г.':
+        if (type_town == 'г.') and (settlement != 'Киров'):
             street += '(' + settlement +')'
             settlement = 'null'
 
