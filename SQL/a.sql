@@ -1,0 +1,13 @@
+@C:\Work\python\KNums\SQL\base\0000.sql
+@C:\Work\python\KNums\SQL\base\0001.sql
+@C:\Work\python\KNums\SQL\base\0002.sql
+@C:\Work\python\KNums\SQL\base\0003.sql
+@C:\Work\python\KNums\SQL\base\0004.sql
+@C:\Work\python\KNums\SQL\base\0005.sql
+@C:\Work\python\KNums\SQL\base\0006.sql
+@C:\Work\python\KNums\SQL\base\0007.sql
+@C:\Work\python\KNums\SQL\base\0008.sql
+@C:\Work\python\KNums\SQL\base\0009.sql
+@C:\Work\python\KNums\SQL\base\0010.sql
+@C:\Work\python\KNums\SQL\base\0011.sql
+@C:\Work\python\KNums\SQL\base\0012.sql
